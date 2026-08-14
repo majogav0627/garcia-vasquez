@@ -1,13 +1,14 @@
+/* Variables de color personalizadas */
 :root {
-  --bg: #0d0d17;
-  --bg-elevated: #16161f;
-  --text: #f2f2f7;
-  --text-muted: #9a9aab;
   --accent: #7c5cff;
-  --border: #2a2a3a;
-  --radius: 14px;
+  --dark-bg: #0d0d17;
+  --dark-elevated: #16161f;
+  --text-light: #f2f2f7;
+  --text-muted: #9a9aab;
+  --border-color: #2a2a3a;
 }
 
+/* Estilos base */
 * {
   box-sizing: border-box;
 }
@@ -19,8 +20,8 @@ body {
 }
 
 body {
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--dark-bg);
+  color: var(--text-light);
   font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
@@ -30,54 +31,74 @@ a {
   text-decoration: none;
 }
 
+/* Container principal */
 .main {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
   min-height: 70vh;
+  padding: 2rem 0;
 }
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-elevated);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* Mejoras a Bootstrap */
+.card {
+  background-color: var(--dark-elevated) !important;
+  border-color: var(--border-color) !important;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.navbar__brand {
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(124, 92, 255, 0.2);
+}
+
+.card-title {
+  color: var(--text-light);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* Estilos para el tema oscuro */
+.bg-dark {
+  background-color: var(--dark-bg) !important;
+}
+
+.navbar-dark {
+  background-color: var(--dark-elevated) !important;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-dark .navbar-brand {
   font-weight: 700;
   font-size: 1.2rem;
-  letter-spacing: 0.02em;
 }
 
-.navbar__links {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.95rem;
-}
-
-.navbar__links a {
-  color: var(--text-muted);
+.navbar-dark .nav-link {
+  color: var(--text-muted) !important;
   transition: color 0.15s ease;
 }
 
-.navbar__links a:hover {
-  color: var(--accent);
+.navbar-dark .nav-link:hover {
+  color: var(--accent) !important;
 }
 
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  border-top: 1px solid var(--border);
+.border-secondary {
+  border-color: var(--border-color) !important;
 }
 
+.text-light {
+  color: var(--text-light) !important;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* Hero section */
 .hero {
   text-align: center;
   padding: 3rem 1rem 2.5rem;
@@ -86,6 +107,7 @@ a {
 .hero h1 {
   font-size: 2.4rem;
   margin-bottom: 0.75rem;
+  color: var(--text-light);
 }
 
 .hero__highlight {
@@ -98,26 +120,30 @@ a {
   margin: 0 auto 1.75rem;
 }
 
-.button {
-  display: inline-block;
+/* Button personalizado */
+.btn-custom {
   background: var(--accent);
   color: #fff;
+  border: none;
   padding: 0.7rem 1.5rem;
   border-radius: 999px;
   font-weight: 600;
   transition: opacity 0.15s ease;
 }
 
-.button:hover {
+.btn-custom:hover {
   opacity: 0.85;
+  color: #fff;
 }
 
+/* Sección */
 .section {
   margin-top: 2rem;
 }
 
 .section h1 {
   margin-bottom: 0.25rem;
+  color: var(--text-light);
 }
 
 .section__intro {
@@ -125,75 +151,20 @@ a {
   margin-bottom: 1.5rem;
 }
 
+/* Grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 1.25rem;
 }
 
-.game-card {
-  display: block;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  transition: transform 0.15s ease, border-color 0.15s ease;
-}
-
-.game-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-}
-
-.game-card__cover {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.game-card__body h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
-}
-
-.game-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-bottom: 0.6rem;
-  flex-wrap: wrap;
-}
-
-.game-card__year {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-
-.game-card__platform {
-  color: var(--accent);
-  font-size: 0.85rem;
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.game-card__rating {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-
-.badge {
-  display: inline-block;
-  border: 1px solid;
-  border-radius: 999px;
-  padding: 0.15rem 0.6rem;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
+/* Detail page */
 .detail__back {
   color: var(--text-muted);
   font-size: 0.9rem;
   display: inline-block;
   margin-bottom: 1.5rem;
+  transition: color 0.15s ease;
 }
 
 .detail__back:hover {
@@ -209,9 +180,9 @@ a {
 
 .detail__cover {
   font-size: 4rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--dark-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
   width: 110px;
   height: 110px;
   display: flex;
@@ -226,7 +197,7 @@ a {
 }
 
 .detail__list {
-  color: var(--text);
+  color: var(--text-light);
   padding-left: 1.2rem;
 }
 
@@ -234,6 +205,7 @@ a {
   margin-bottom: 0.4rem;
 }
 
+/* About page */
 .about p {
   color: var(--text-muted);
   max-width: 620px;

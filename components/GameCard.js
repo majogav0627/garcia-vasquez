@@ -5,17 +5,29 @@ export default function GameCard({ game }) {
   const { slug, title, genre, platform, year, rating, cover, color } = game;
 
   return (
-    <Link href={`/juegos/${slug}`} className="game-card" style={{ "--accent": color }}>
-      <div className="game-card__cover">{cover}</div>
-      <div className="game-card__body">
-        <h3>{title}</h3>
-        <div className="game-card__meta">
-          <Badge text={genre} color={color} />
-          <span className="game-card__year">{year}</span>
+    <div className="col-md-6 col-lg-4 mb-4">
+      <Link href={`/juegos/${slug}`} className="text-decoration-none">
+        <div className="card h-100 bg-dark text-light border-secondary hover-shadow" style={{ cursor: "pointer", transition: "transform 0.2s" }}>
+          <div className="card-body">
+            <div className="mb-3" style={{ fontSize: "3rem" }}>
+              {cover}
+            </div>
+            <h5 className="card-title">{title}</h5>
+            <div className="mb-2">
+              <Badge text={genre} color={color} />
+              <span className="ms-2 small text-muted">({year})</span>
+            </div>
+            {platform && (
+              <p className="mb-2">
+                <small className="badge bg-info text-dark">🎮 {platform}</small>
+              </p>
+            )}
+            <div className="card-text">
+              <strong>⭐ {rating.toFixed(1)}/10</strong>
+            </div>
+          </div>
         </div>
-        {platform && <div className="game-card__platform">🎮 {platform}</div>}
-        <div className="game-card__rating">⭐ {rating.toFixed(1)}</div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }

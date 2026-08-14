@@ -1,43 +1,86 @@
 # GameVault — Proyecto Next.js (App Router)
 
-Proyecto individual para practicar **Next.js con App Router**, enrutamiento por carpetas y componentes reutilizables con props.
+Proyecto individual para practicar **Next.js con App Router**, enrutamiento por carpetas, componentes reutilizables con props y **Bootstrap** como framework CSS.
 
-## Tema
+## 📋 Descripción
 
-Catálogo/portafolio personal de videojuegos favoritos. Sin backend: todos los datos viven en `data/games.js`.
+Catálogo/portafolio personal de videojuegos favoritos. Permite agregar, editar y visualizar juegos con detalles como plataforma, género, año y puntuación. Todos los datos se almacenan localmente en el proyecto (sin backend).
 
-## Estructura
+**Características:**
+- ✅ Enrutamiento dinámico por carpetas (App Router)
+- ✅ Componentes reutilizables con props
+- ✅ Datos almacenados localmente (JSON)
+- ✅ Integración con Bootstrap 5
+- ✅ Interfaz responsive
+- ✅ Sistema de agregar y editar juegos
+- ✅ Muestra plataforma de cada juego
+
+## 📁 Estructura
 
 ```
 app/
-  layout.js            # Layout raíz (Navbar + Footer)
-  page.js               # Inicio
+  layout.js            # Layout raíz (Navbar + Footer + Bootstrap)
+  page.js              # Página inicio (hero + juegos destacados)
+  globals.css          # Estilos globales complementarios a Bootstrap
   juegos/
-    page.js              # Listado de todos los juegos
+    page.js            # Listado de todos los juegos
     [slug]/
-      page.js             # Detalle de un juego (ruta dinámica)
+      page.js          # Detalle dinámico de un juego
   sobre-mi/
-    page.js              # Página "Sobre mí"
+    page.js            # Página "Sobre mí"
 components/
-  Navbar.js
-  Footer.js
-  GameCard.js            # Reutilizable, recibe `game` por props
-  Badge.js               # Reutilizable, recibe `text` y `color` por props
+  Navbar.js            # Navegación con Bootstrap
+  Footer.js            # Pie de página
+  GameCard.js          # Card reutilizable, recibe `game` por props
+  Badge.js             # Badge reutilizable, recibe `text` y `color` por props
+  GameForm.js          # Formulario para agregar/editar juegos
+  GameManager.js       # Gestor de juegos (CRUD)
 data/
-  games.js               # Datos locales del catálogo
+  games.js             # Datos locales del catálogo de juegos
 ```
 
-## Cómo correrlo
+## 🚀 Instalación
 
 ```bash
+# Clonar o descargar el proyecto
+cd frontend
+
+# Instalar dependencias
 npm install
+```
+
+## 🎮 Cómo ejecutar
+
+```bash
 npm run dev
 ```
 
-Abrir [http://localhost:3000](http://localhost:3000).
+El proyecto se ejecutará en **[http://localhost:3000](http://localhost:3000)**
 
-## Tecnologías
+Para compilar para producción:
+```bash
+npm run build
+npm start
+```
 
-- Next.js 15 (App Router)
-- React
-- CSS propio (sin frameworks)
+## 🛠 Tecnologías
+
+- **Next.js 15** (App Router)
+- **React 19**
+- **Bootstrap 5** (CSS framework)
+- **JavaScript** (ES6+)
+
+## 📚 Requisitos cumplidos
+
+✅ Proyecto creado con `create-next-app` usando **App Router**
+✅ Configurado con **Bootstrap** en lugar de Tailwind CSS
+✅ Dos rutas principales (`/juegos` y `/sobre-mi`) con enrutamiento por carpetas
+✅ Componentes reutilizables (`GameCard`, `Badge`) con props
+✅ Datos almacenados localmente (sin backend)
+✅ Menú de navegación gestionado con componente `Navbar`
+✅ Funcionalidad para agregar y editar juegos
+✅ Campo plataforma integrado en cada juego
+
+## 👨‍💻 Autor
+
+Proyecto académico para **PON0** — Programación Orientada a la Nube

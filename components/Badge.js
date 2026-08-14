@@ -3,8 +3,8 @@ export default function Badge({ text, color = "#7c5cff" }) {
     <span
       className="badge"
       style={{
-        borderColor: color,
-        color: color,
+        backgroundColor: color,
+        color: "#fff",
       }}
     >
       {text}
