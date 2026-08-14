@@ -6,7 +6,7 @@ export default function HomePage() {
   const destacados = games.slice(0, 3);
 
   return (
-    <>
+    <div className="container-fluid px-4">
       <section className="hero">
         <h1>
           Bienvenido a <span className="hero__highlight">GameVault</span>
@@ -15,19 +15,21 @@ export default function HomePage() {
           Mi colección personal de videojuegos favoritos: reseñas cortas,
           géneros y lo que más disfruté de cada uno.
         </p>
-        <Link href="/juegos" className="button">
+        <Link href="/juegos" className="btn btn-custom">
           Ver todos los juegos
         </Link>
       </section>
 
       <section className="section">
-        <h2>Destacados</h2>
-        <div className="grid">
+        <h2 className="mb-4">Destacados</h2>
+        <div className="row">
           {destacados.map((game) => (
-            <GameCard key={game.slug} game={game} />
+            <div key={game.slug} className="col-12 col-md-6 col-lg-4 mb-4">
+              <GameCard game={game} />
+            </div>
           ))}
         </div>
       </section>
-    </>
+    </div>
   );
 }

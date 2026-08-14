@@ -49,53 +49,52 @@ export default function JuegosPage() {
   };
 
   if (!isLoaded) {
-    return <section className="section"><p>Cargando...</p></section>;
+    return (
+      <div className="container-fluid px-4">
+        <section className="section"><p>Cargando...</p></section>
+      </div>
+    );
   }
 
   return (
-    <section className="section">
-      {showManager ? (
-        <GameManager
-          initialGames={games}
-          onAddGame={handleAddGame}
-          onUpdateGame={handleUpdateGame}
-          onDeleteGame={handleDeleteGame}
-        />
-      ) : (
-        <>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-            <div>
-              <h1>Todos los juegos</h1>
-              <p className="section__intro">
-                {games.length} juegos en la colección. Haz clic en cualquiera para ver más detalles.
-              </p>
+    <div className="container-fluid px-4">
+      <section className="section">
+        {showManager ? (
+          <GameManager
+            initialGames={games}
+            onAddGame={handleAddGame}
+            onUpdateGame={handleUpdateGame}
+            onDeleteGame={handleDeleteGame}
+          />
+        ) : (
+          <>
+            <div className="row mb-4 align-items-center">
+              <div className="col-auto flex-grow-1">
+                <h1 className="mb-2">Todos los juegos</h1>
+                <p className="section__intro mb-0">
+                  {games.length} juegos en la colección. Haz clic en cualquiera para ver más detalles.
+                </p>
+              </div>
+              <div className="col-auto">
+                <button
+                  onClick={() => setShowManager(true)}
+                  className="btn btn-success btn-lg"
+                  title="Acceder al gestor de juegos"
+                >
+                  ⚙️ Administrar
+                </button>
+              </div>
             </div>
-            <button
-              onClick={() => setShowManager(true)}
-              style={{
-                padding: '0.75rem 1.5rem',
-                background: 'linear-gradient(135deg, #3ddc97, #2db88e)',
-                border: 'none',
-                borderRadius: '8px',
-                color: 'black',
-                fontWeight: '700',
-                fontSize: '1rem',
-                cursor: 'pointer',
-                whiteSpace: 'nowrap',
-                transition: 'all 0.2s ease',
-              }}
-              title="Acceder al gestor de juegos"
-            >
-              ⚙️ Administrar
-            </button>
-          </div>
-          <div className="grid">
-            {games.map((game) => (
-              <GameCard key={game.slug} game={game} />
-            ))}
-          </div>
-        </>
-      )}
-    </section>
+            <div className="row">
+              {games.map((game) => (
+                <div key={game.slug} className="col-12 col-md-6 col-lg-4 mb-4">
+                  <GameCard game={game} />
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+      </section>
+    </div>
   );
 }
