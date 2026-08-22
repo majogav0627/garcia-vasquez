@@ -4,7 +4,11 @@ Proyecto individual para practicar **Next.js con App Router**, enrutamiento por 
 
 ## 📋 Descripción
 
-Catálogo/portafolio personal de videojuegos favoritos. Permite agregar, editar y visualizar juegos con detalles como plataforma, género, año y puntuación. Todos los datos se almacenan localmente en el proyecto (sin backend).
+Catálogo/portafolio personal de videojuegos favoritos. También incluye listados y detalles de productos y usuarios consumidos desde DummyJSON mediante solicitudes HTTP GET.
+
+## DummyJSON y Next.js
+
+DummyJSON es una API pública que proporciona datos de prueba en formato JSON, incluyendo productos y usuarios. En este proyecto, Next.js utiliza sus componentes y rutas del App Router para presentar el listado y el detalle de cada recurso, mientras React gestiona los estados de carga y error en los componentes que consumen la API.
 
 **Características:**
 - ✅ Enrutamiento dinámico por carpetas (App Router)
@@ -14,6 +18,9 @@ Catálogo/portafolio personal de videojuegos favoritos. Permite agregar, editar 
 - ✅ Interfaz responsive
 - ✅ Sistema de agregar y editar juegos
 - ✅ Muestra plataforma de cada juego
+- ✅ Listado de productos desde `https://dummyjson.com/products`
+- ✅ Detalle de producto desde `https://dummyjson.com/products/{id}`
+- ✅ Listado y detalle de usuarios desde DummyJSON
 
 ## 📁 Estructura
 
@@ -28,6 +35,12 @@ app/
       page.js          # Detalle dinámico de un juego
   sobre-mi/
     page.js            # Página "Sobre mí"
+  productos/
+    page.js            # Listado de productos (GET all)
+    [id]/page.js       # Detalle de producto (GET id)
+  usuarios/
+    page.js            # Listado de usuarios (GET all)
+    [id]/page.js       # Detalle de usuario (GET id)
 components/
   Navbar.js            # Navegación con Bootstrap
   Footer.js            # Pie de página
@@ -35,6 +48,8 @@ components/
   Badge.js             # Badge reutilizable, recibe `text` y `color` por props
   GameForm.js          # Formulario para agregar/editar juegos
   GameManager.js       # Gestor de juegos (CRUD)
+  ProductList.js / ProductDetail.js
+  UserList.js / UserDetail.js
 data/
   games.js             # Datos locales del catálogo de juegos
 ```
@@ -63,9 +78,11 @@ npm run build
 npm start
 ```
 
+Las rutas disponibles para verificar la integración son `/productos`, `/productos/1`, `/usuarios` y `/usuarios/1`.
+
 ## 🛠 Tecnologías
 
-- **Next.js 15** (App Router)
+- **Next.js 16** (App Router)
 - **React 19**
 - **Bootstrap 5** (CSS framework)
 - **JavaScript** (ES6+)

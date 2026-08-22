@@ -29,6 +29,16 @@ export default function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link href="/productos" className="nav-link">
+                  Productos
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link href="/usuarios" className="nav-link">
+                  Usuarios
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link href="/sobre-mi" className="nav-link">
                   Sobre mí
                 </Link>
