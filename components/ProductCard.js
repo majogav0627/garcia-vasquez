@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, onEdit, onDelete }) {
   return (
     <article className="card h-100 product-card">
       <img
@@ -16,13 +16,22 @@ export default function ProductCard({ product }) {
         <h2 className="card-title h5">{product.title}</h2>
         <p className="text-muted small flex-grow-1">{product.description}</p>
         <div className="product-card__facts">
-          <strong>${product.price.toFixed(2)}</strong>
-          <span>⭐ {product.rating}</span>
+          <strong>${Number(product.price || 0).toFixed(2)}</strong>
+          <span>⭐ {product.rating ?? "-"}</span>
           <span>{product.stock} disponibles</span>
         </div>
-        <Link href={`/productos/${product.id}`} className="btn btn-custom mt-3">
-          Ver detalle
-        </Link>
+
+        <div className="d-flex gap-2 mt-3">
+          <Link href={`/productos/${product.id}`} className="btn btn-custom flex-fill">
+            Ver detalle
+          </Link>
+          <button type="button" className="btn btn-warning flex-fill" onClick={onEdit}>
+            Actualizar
+          </button>
+          <button type="button" className="btn btn-danger flex-fill" onClick={onDelete}>
+            Eliminar
+          </button>
+        </div>
       </div>
     </article>
   );

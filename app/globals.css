@@ -490,6 +490,36 @@ a {
   padding-left: 0;
 }
 
+.product-form {
+  border: 1px solid var(--border-color);
+}
+
+.product-form .form-control {
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  color: var(--text-light);
+}
+
+.product-form .form-control:focus {
+  background-color: rgba(255, 255, 255, 0.04);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 0.2rem rgba(124, 92, 255, 0.2);
+  color: var(--text-light);
+}
+
+.product-form .form-label {
+  margin-bottom: 0.5rem;
+}
+
+.product-card .btn {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.product-list .alert {
+  margin-bottom: 1rem;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
@@ -510,5 +540,9 @@ a {
 
   .navbar-brand {
     font-size: 1.1rem !important;
+  }
+
+  .product-card .btn {
+    font-size: 0.75rem;
   }
 }

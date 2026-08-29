@@ -4,11 +4,11 @@ Proyecto individual para practicar **Next.js con App Router**, enrutamiento por 
 
 ## 📋 Descripción
 
-Catálogo/portafolio personal de videojuegos favoritos. También incluye listados y detalles de productos y usuarios consumidos desde DummyJSON mediante solicitudes HTTP GET.
+Catálogo/portafolio personal de videojuegos favoritos. Además de listar y consultar productos y usuarios desde DummyJSON, el proyecto incorpora operaciones de edición mediante verbos HTTP para administrar un catálogo de productos en la interfaz.
 
 ## DummyJSON y Next.js
 
-DummyJSON es una API pública que proporciona datos de prueba en formato JSON, incluyendo productos y usuarios. En este proyecto, Next.js utiliza sus componentes y rutas del App Router para presentar el listado y el detalle de cada recurso, mientras React gestiona los estados de carga y error en los componentes que consumen la API.
+DummyJSON es una API pública que proporciona datos de prueba en formato JSON, incluyendo productos y usuarios. En este proyecto, Next.js utiliza sus componentes y rutas del App Router para presentar el listado, detalle y operaciones CRUD simuladas del recurso producto. React gestiona los estados de carga, envío, éxito y error en cada operación.
 
 **Características:**
 - ✅ Enrutamiento dinámico por carpetas (App Router)
@@ -21,6 +21,11 @@ DummyJSON es una API pública que proporciona datos de prueba en formato JSON, i
 - ✅ Listado de productos desde `https://dummyjson.com/products`
 - ✅ Detalle de producto desde `https://dummyjson.com/products/{id}`
 - ✅ Listado y detalle de usuarios desde DummyJSON
+- ✅ Inserción de productos con `POST` en `https://dummyjson.com/products/add`
+- ✅ Actualización de productos con `PUT` en `https://dummyjson.com/products/{id}`
+- ✅ Eliminación de productos con `DELETE` en `https://dummyjson.com/products/{id}`
+- ✅ Confirmación previa antes de borrar y mensajes claros de éxito/error
+- ✅ DummyJSON simula la operación sin persistir cambios reales en el servidor
 
 ## 📁 Estructura
 
@@ -97,6 +102,9 @@ Las rutas disponibles para verificar la integración son `/productos`, `/product
 ✅ Menú de navegación gestionado con componente `Navbar`
 ✅ Funcionalidad para agregar y editar juegos
 ✅ Campo plataforma integrado en cada juego
+✅ CRUD de productos con DummyJSON mediante `POST`, `PUT` y `DELETE`
+✅ Botón de alta en la parte superior del listado y acciones de edición/eliminación por registro
+✅ README actualizado con la documentación de los verbos incorporados
 
 ## 👨‍💻 Autor
 
